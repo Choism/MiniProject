@@ -13,6 +13,7 @@ import com.example.tacademy.miniproject.manager.NetworkManager;
 import com.example.tacademy.miniproject.manager.NetworkRequest;
 import com.example.tacademy.miniproject.manager.PropertyManager;
 import com.example.tacademy.miniproject.request.LogOutRequest;
+import com.facebook.login.LoginManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 public void onSuccess(NetworkRequest<NetworkResult<String>> request, NetworkResult<String> result) {
                     PropertyManager.getInstance().setEmail("");
                     PropertyManager.getInstance().setPassword("");
+                    PropertyManager.getInstance().setFacebookId("");
+                    LoginManager.getInstance().logOut();
                     Intent intent = new Intent(MainActivity.this, SimpleLoginActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);

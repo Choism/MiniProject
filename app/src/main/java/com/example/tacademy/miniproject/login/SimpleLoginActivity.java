@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.tacademy.miniproject.MainActivity;
+import com.example.tacademy.miniproject.R;
+import com.example.tacademy.miniproject.facebookLogin.FacebookSignupFragment;
+import com.example.tacademy.miniproject.facebookLogin.FacebookUser;
 
 
 public class SimpleLoginActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,13 @@ public class SimpleLoginActivity extends AppCompatActivity {
     public void changeSingup() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new SignUpFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void changeFacebookSignup(FacebookUser user) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, FacebookSignupFragment.newInstance(user))
                 .addToBackStack(null)
                 .commit();
     }
