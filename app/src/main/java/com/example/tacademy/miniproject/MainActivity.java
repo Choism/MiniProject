@@ -1,9 +1,11 @@
 package com.example.tacademy.miniproject;
 
+
 import android.content.Intent;
+
+import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -18,9 +20,12 @@ import com.facebook.login.LoginManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tabhost)
     FragmentTabHost tabHost;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
